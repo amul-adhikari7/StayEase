@@ -1,6 +1,6 @@
-# 🏨 Luxestay - Hotel Booking System (MERN Stack)
+# 🏨 StayEase - Hotel Booking System (MERN Stack)
 
-Luxestay is a **full-stack hotel booking system** built with the **MERN stack (MongoDB, Express.js, React.js, Node.js)**. It allows users to register, browse hotels, book rooms, make payments, and manage reservations.
+StayEase is a **full-stack hotel booking system** built with the **MERN stack (MongoDB, Express.js, React.js, Node.js)**. It allows users to register, browse hotels, book rooms, make payments, and manage reservations.
 
 ---
 
