@@ -1,20 +1,23 @@
-const router = require('express').Router();
-const roomController = require('../controller/roomController');
-const { authGuard } = require('../middleware/authGuard');
+const router = require('express').Router()
+const roomController = require('../controller/roomController')
+const { authGuard } = require('../middleware/authGuard')
 
 // Create a room
-router.post('/create', roomController.createRoom);
+router.post('/create', roomController.createRoom)
 
 // Fetch all rooms
-router.get('/get_all_rooms', roomController.getAllRooms);
+router.get('/get_all_rooms', roomController.getAllRooms)
 
 // Fetch single room
-router.get('/get_single_room/:id', roomController.getSingleRoom);
+router.get('/get_single_room/:id', roomController.getSingleRoom)
+
+// Search rooms by hotel name
+router.get('/search', roomController.searchRoomsByName)
 
 // Delete a room
-router.delete('/delete_room/:id', roomController.deleteRoom);
+router.delete('/delete_room/:id', roomController.deleteRoom)
 
 // Update a room
-router.put('/update_room/:id', roomController.updateRoom);
+router.put('/update_room/:id', roomController.updateRoom)
 
-module.exports = router;
+module.exports = router
