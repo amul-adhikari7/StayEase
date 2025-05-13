@@ -1,0 +1,6 @@
+/* ...existing code... */
+
+.Toastify__toast--error {
+  background: #d9534f;
+  color: white;
+}
