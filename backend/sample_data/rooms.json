@@ -1,0 +1,72 @@
+[
+    {
+        "id": "h1",
+        "name": "Hotel Thamel Plaza",
+        "lat": 27.7156,
+        "lon": 85.3123,
+        "rating": 4.5
+    },
+    {
+        "id": "h2",
+        "name": "Kathmandu Guest House",
+        "lat": 27.7152,
+        "lon": 85.3129,
+        "rating": 4.3
+    },
+    {
+        "id": "h3",
+        "name": "Hotel Yak & Yeti",
+        "lat": 27.7136,
+        "lon": 85.3232,
+        "rating": 4.6
+    },
+    {
+        "id": "h4",
+        "name": "Hotel Shanker",
+        "lat": 27.7172,
+        "lon": 85.3172,
+        "rating": 4.4
+    },
+    {
+        "id": "h5",
+        "name": "Hotel Mulberry",
+        "lat": 27.7139,
+        "lon": 85.3145,
+        "rating": 4.2
+    },
+    {
+        "id": "h6",
+        "name": "Hotel Himalaya",
+        "lat": 27.6875,
+        "lon": 85.3178,
+        "rating": 4.1
+    },
+    {
+        "id": "h7",
+        "name": "Hotel Annapurna",
+        "lat": 27.7102,
+        "lon": 85.3201,
+        "rating": 4.0
+    },
+    {
+        "id": "h8",
+        "name": "Hotel Moonlight",
+        "lat": 27.7178,
+        "lon": 85.3087,
+        "rating": 4.3
+    },
+    {
+        "id": "h9",
+        "name": "Hotel Manang",
+        "lat": 27.7159,
+        "lon": 85.3082,
+        "rating": 4.2
+    },
+    {
+        "id": "h10",
+        "name": "Hotel Vaishali",
+        "lat": 27.7145,
+        "lon": 85.3097,
+        "rating": 4.1
+    }
+]
