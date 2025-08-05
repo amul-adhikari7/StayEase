@@ -25,7 +25,7 @@ app.use("/rooms", express.static(path.join(__dirname, "public/rooms")));
 // Enable file upload middleware
 app.use(fileUpload());
 
-// routesgit
+// routes
 app.use("/api/users", require("./routes/userRoutes")); // User-related routes
 app.use("/api/room", require("./routes/roomRoutes"));
 app.use("/api/booking", require("./routes/bookingRoute"));
@@ -38,6 +38,9 @@ app.use("/api/spatial", require("./routes/spatialRoutes"));
 
 // Register the new /api/hotels route for spatial hotel search
 app.use("/api/hotels", require("./routes/hotelRoutes"));
+
+// Register the new /api/hotelrooms route for hotel room suggestions
+app.use("/api/hotelrooms", require("./routes/hotelRoomRoutes"));
 
 // Weekly spatial mining job (runs every Sunday at 2am)
 cron.schedule("0 2 * * 0", async () => {

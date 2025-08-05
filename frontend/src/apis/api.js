@@ -1,64 +1,92 @@
-import axios from 'axios'
+import axios from "axios";
 
 // Backend configuration
 const api = axios.create({
-  baseURL: 'http://localhost:5000', // Update this if your backend runs on a different URL
+  baseURL: "http://localhost:5000/api", // Update this if your backend runs on a different URL
   withCredentials: true,
   headers: {
-    'Content-Type': 'multipart/form-data'
-  }
-})
+    "Content-Type": "multipart/form-data",
+  },
+});
 
 // Authorization configuration
 const config = {
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('token')}`
-  }
-}
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
+};
 
 // User APIs
-export const loginUserApi = data => api.post('/api/users/login', data)
-export const registerUserApi = data => api.post('/api/users/register', data)
-export const fetchUserProfileApi = () => api.get('/api/users/profile', config)
-export const updateUserProfileApi = data =>
-  api.put('/api/users/profile', data, config)
-export const verifyAccountApi = data =>
-  api.post('/api/users/verify', data, config)
-export const forgotPasswordApi = data =>
-  api.post('/api/users/forgot-password', data)
-export const resetPasswordApi = data =>
-  api.post('/api/users/reset-password', data)
+export const loginUserApi = (data) => api.post("/users/login", data);
+export const registerUserApi = (data) => api.post("/users/register", data);
+export const fetchUserProfileApi = () => api.get("/users/profile", config);
+export const updateUserProfileApi = (data) =>
+  api.put("/users/profile", data, config);
+export const verifyAccountApi = (data) =>
+  api.post("/users/verify", data, config);
+export const forgotPasswordApi = (data) =>
+  api.post("/users/forgot-password", data);
+export const resetPasswordApi = (data) =>
+  api.post("/users/reset-password", data);
 
 // Booking APIs
-export const createBookingApi = data => api.post('/api/bookings', data, config)
-export const fetchUserBookingsApi = () => api.get('/api/bookings/user', config)
-export const fetchBookingByIdApi = id => api.get(`/api/bookings/${id}`, config)
-export const fetchAllBookingsApi = () => api.get('/api/bookings', config)
+export const createBookingApi = (data) =>
+  api.post("/bookings/create", data, config);
+let hasLoggedBookings404 = false;
+export const fetchUserBookingsApi = async () => {
+  try {
+    // Updated to match backend route
+    const response = await api.get("/bookings/users", config);
+    return response;
+  } catch (error) {
+    // Handle various error cases gracefully
+    if (error.response) {
+      // Server responded with error
+      if (error.response.status === 404 || error.response.status === 401) {
+        if (!hasLoggedBookings404) {
+          console.info(
+            "User not logged in or has no bookings. Returning empty array."
+          );
+          hasLoggedBookings404 = true;
+        }
+        return { data: [] };
+      }
+    } else if (error.request) {
+      // Request made but no response
+      console.warn("No response from booking service. Please try again later.");
+      return { data: [] };
+    }
+    // Only throw for unexpected errors
+    throw error;
+  }
+};
+export const fetchBookingByIdApi = (id) => api.get(`/bookings/${id}`, config);
+export const fetchAllBookingsApi = () => api.get("/bookings/all", config);
 export const updateBookingStatusApi = (id, data) =>
-  api.put(`/api/bookings/${id}`, data, config)
+  api.put(`/bookings/update/${id}`, data, config);
 
 // Hotel and Room APIs
-export const fetchHotelsApi = () => api.get('/api/hotels')
-export const fetchHotelByIdApi = id => api.get(`/api/hotels/${id}`)
-export const createHotelApi = data => api.post('/api/hotels', data, config)
+export const fetchHotelsApi = () => api.get("/hotels");
+export const fetchHotelByIdApi = (id) => api.get(`/hotels/${id}`);
+export const createHotelApi = (data) => api.post("/hotels", data, config);
 export const updateHotelApi = (id, data) =>
-  api.put(`/api/hotels/${id}`, data, config)
-export const deleteHotelApi = id => api.delete(`/api/hotels/${id}`, config)
+  api.put(`/hotels/${id}`, data, config);
+export const deleteHotelApi = (id) => api.delete(`/hotels/${id}`, config);
 export const addRoomToHotelApi = (hotelId, data) =>
-  api.post(`/api/hotels/${hotelId}/rooms`, data, config)
+  api.post(`/hotels/${hotelId}/rooms`, data, config);
 export const updateRoomApi = (id, data) =>
-  api.put(`/api/rooms/${id}`, data, config)
-export const deleteRoomApi = id => api.delete(`/api/rooms/${id}`, config)
-export const searchRoomsByNameApi = name =>
-  api.get(`/api/room/search?name=${name}`)
+  api.put(`/rooms/${id}`, data, config);
+export const deleteRoomApi = (id) => api.delete(`/rooms/${id}`, config);
+export const searchRoomsByNameApi = (name) =>
+  api.get(`/room/search?name=${name}`);
 
 // Payment APIs
-export const processPaymentApi = data => api.post('/api/payments', data, config)
+export const processPaymentApi = (data) => api.post("/payments", data, config);
 
 // Review APIs
-export const addReviewApi = data => api.post('/api/reviews', data, config)
-export const fetchReviewsForHotelApi = hotelId =>
-  api.get(`/api/reviews/hotels/${hotelId}`)
-export const deleteReviewApi = id => api.delete(`/api/reviews/${id}`, config)
+export const addReviewApi = (data) => api.post("/reviews", data, config);
+export const fetchReviewsForHotelApi = (hotelId) =>
+  api.get(`/reviews/hotels/${hotelId}`);
+export const deleteReviewApi = (id) => api.delete(`/reviews/${id}`, config);
 
-export default api
+export default api;
