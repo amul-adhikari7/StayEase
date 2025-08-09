@@ -269,17 +269,20 @@ const Homepage = () => {
           style={{
             marginBottom: '40px',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            padding: '40px 0',
+            background: 'linear-gradient(to right, #f8f9fa, #ffffff)'
           }}
         >
           <div
             className='container d-flex justify-content-between'
             style={{
               width: '90%',
-              gap: '30px',
-              padding: '5px',
+              gap: '40px',
+              padding: '30px',
               backgroundColor: '#FFFFFFFF',
-              borderRadius: '10px'
+              borderRadius: '15px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
             }}
           >
             {/* Left Container */}
@@ -490,10 +493,11 @@ const Homepage = () => {
               <div
                 className='featured-hotels'
                 style={{
-                  marginTop: '20px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  gap: '15px'
+                  marginTop: '30px',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '25px',
+                  padding: '10px'
                 }}
               >
                 {rooms.slice(0, 3).map((room, index) => (
@@ -574,9 +578,12 @@ const Homepage = () => {
                 textAlign: 'center',
                 backgroundColor: '#13361C',
                 color: '#FFFFFFFF',
-                padding: '20px',
-                borderRadius: '10px',
-                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
+                padding: '30px',
+                borderRadius: '15px',
+                boxShadow: '0px 15px 25px rgba(0, 0, 0, 0.15)',
+                position: 'sticky',
+                top: '20px',
+                height: 'fit-content'
               }}
             >
               <h3
@@ -750,7 +757,11 @@ const Homepage = () => {
           style={{
             marginBottom: '15px',
             backgroundColor: '#13361C',
-            padding: '40px 20px'
+            padding: '80px 20px',
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundImage:
+              'linear-gradient(45deg, rgba(19, 54, 28, 0.97), rgba(19, 54, 28, 0.95))'
           }}
         >
           <h1 style={{ color: 'white', marginBottom: '20px' }}>
@@ -838,18 +849,36 @@ const Homepage = () => {
           </h1>
 
           {/* Search Bar */}
-          <div style={{ marginBottom: '20px', textAlign: 'center' }}>
+          <div
+            style={{
+              marginBottom: '30px',
+              textAlign: 'center',
+              maxWidth: '800px',
+              margin: '0 auto 30px',
+              padding: '20px',
+              backgroundColor: '#f8f9fa',
+              borderRadius: '12px',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.05)'
+            }}
+          >
             <input
               type='text'
               placeholder='Search by hotel name'
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               style={{
-                padding: '10px',
+                padding: '15px 20px',
                 width: '60%',
-                borderRadius: '5px',
-                border: '1px solid #ccc',
-                marginRight: '10px'
+                borderRadius: '8px',
+                border: '2px solid #e9ecef',
+                marginRight: '15px',
+                fontSize: '16px',
+                transition: 'all 0.3s ease',
+                outline: 'none',
+                '&:focus': {
+                  borderColor: '#CC9A48',
+                  boxShadow: '0 0 0 3px rgba(204, 154, 72, 0.2)'
+                }
               }}
             />
             <button

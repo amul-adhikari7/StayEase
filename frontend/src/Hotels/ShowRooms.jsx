@@ -223,7 +223,7 @@ const AdminRoomTable = () => {
                               ? `Lat: ${room.location.coordinates[1]}, Lng: ${room.location.coordinates[0]}`
                               : ''}
                           </td>
-                          <td style={styles.thTd}>${room.price}</td>
+                          <td style={styles.thTd}>NPR{room.price}</td>
                           <td style={styles.thTd}>{room.noOfBeds}</td>
                           <td style={styles.thTd}>
                             <Link
