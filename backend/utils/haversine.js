@@ -3,6 +3,7 @@
  * @param {{lat: number, lon: number}} coord1
  * @param {{lat: number, lon: number}} coord2
  * @returns {number} Distance in kilometers
+ *
  */
 function haversineDistance(coord1, coord2) {
   const toRad = (deg) => (deg * Math.PI) / 180;

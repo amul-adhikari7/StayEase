@@ -776,13 +776,11 @@ const Homepage = () => {
               lineHeight: '1.6'
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            StayEase is a premium hotel reservation application designed to make
+            your booking experience seamless and enjoyable. We provide easy
+            access to the best accommodations across Nepal. Our platform ensures
+            secure bookings, competitive rates, and exceptional customer service
+            to make your stay truly comfortable.
           </p>
 
           <div
